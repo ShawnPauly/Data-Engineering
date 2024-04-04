@@ -1,0 +1,33 @@
+RULES AND RESTRICTIONS:
+
+Group BY Function:
+Group by function used to group the data based upon the aggregrate value.
+
+ORDER EXECUTION:
+FROM
+WHERE
+GROUP BY
+SELECT
+ORDER BY
+
+
+SELECT order_date, count(*) as total_count
+FROM orders
+where order_status in ('COMPLETE','CLOSED')
+GROUP BY order_date
+ORDER BY order_date desc;
+
+
+Above code is explained in compiler version:
+
+1. Based upon the above code, the query will execute the from clause first and stored the data in the memory.
+2. Then where clause will be executed based upon the condition provided(in our case we are checking the status of completed and closed)
+3. Where clause cannot use the Alias in the select statement as the order of execution of select is after group by.
+4. When Group by is there where clause cannot use aggregarte function.
+5. Once the Where clause is executed then the group by will be triggered.
+6. Group by checks the select statement for aggregrate value and group column.
+7. Order by clause reorders the data into expected order.
+ 
+
+
+
